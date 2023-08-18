@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Todo = ({todoData, isFinished, changeFinished, onDelete, onEdit}) => {
+const Todo = ({todoData, isFinished, changeFinished, onDelete}) => {
 
     const [finished, setFinished] = useState(isFinished);
     const [isEditing, setIsEditing] = useState(false);
