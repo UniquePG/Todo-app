@@ -1,5 +1,5 @@
 
-function todoReducer(state, action){
+function todoReducer(state = [], action){
 
     if(action.type == "add_todo"){
         let todoText = action.payload.todoData;
@@ -47,6 +47,9 @@ function todoReducer(state, action){
         })
 
         return updatedList;
+    }
+    else{
+        return state;
     }
 
 }

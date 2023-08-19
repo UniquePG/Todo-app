@@ -2,16 +2,23 @@ import React, { useContext } from 'react'
 import Todo from '../Todo/Todo'
 import TodoContext from '../../Context/TodoContext'
 import todoDespatchContext from '../../Context/todoDespatchContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteTodo, editTodo, finishedTodo } from '../../Actions/todoActions';
 
-const TodoList = () => {
+const TodoList = ( { deleteTodo, editTodo, finishedTodo }) => {
 
-    const { todoList} = useContext(TodoContext);
+    const dispatch = useDispatch();
 
-    const { dispatch } = useContext(todoDespatchContext);
+    // now we get our state list from selector method
+    const todoList = useSelector( (state) => state.todo)    //* it gives the access of todo(we define in combineReducer)
+
+    // const { todoList} = useContext(TodoContext);
+
+    // const { dispatch } = useContext(todoDespatchContext);
 
 
     function onFinished(todo, isFinished){
-        
+       //! 1st 
         // const updatedList = todoList.map((t) => {
         //     if(t.id === todo.id){
         //         todo.finished = isFinished
@@ -22,20 +29,38 @@ const TodoList = () => {
 
         // setTodoList(updatedList)
 
-        dispatch({ type: 'finish_todo', payload: { todo, isFinished } }) 
+        //! 2nd
+        // dispatch( { type: 'finish_todo', payload: { todo, isFinished } });
+        
+        //! 3rd
+        // dispatch(finishedTodo(todo, isFinished));
+        
+        //! 4th
+        finishedTodo(todo, isFinished)
 
     }
 
     function onDelete(todo){
+
+        //! 1st 
         // const updatedList = todoList.filter(t => t.id != todo.id)
 
         // setTodoList(updatedList)
         
-        dispatch({ type: 'delete_todo', payload: { todo } }) 
+        //! 2nd
+        // dispatch( { type: 'delete_todo', payload: { todo } } ); 
+
+        //! 3rd
+        // dispatch(deleteTodo(todo)); 
+
+        //! 4th
+        deleteTodo(todo);
     }
 
 
     function onEdit(todo, newTodoText){
+
+        //! 1st
         // const updatedList = todoList.map((t) => {
         //     if(t.id === todo.id){
         //         todo.todoData = newTodoText
@@ -46,8 +71,14 @@ const TodoList = () => {
 
         // setTodoList(updatedList)
 
+        //! 2nd
+        // dispatch({ type: 'edit_todo', payload: { todo, newTodoText } });   
 
-        dispatch({ type: 'edit_todo', payload: { todo, newTodoText } })   
+        //! 3rd
+        // dispatch(editTodo(todo, newTodoText));
+        
+        //! 4th
+        editTodo(todo, newTodoText)
     }
 
   return (
