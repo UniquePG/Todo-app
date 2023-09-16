@@ -1,3 +1,5 @@
+import "./addtodo.css"
+
 import React, { useContext, useState } from 'react'
 import todoDespatchContext from '../../Context/todoDespatchContext'
 import { useDispatch } from 'react-redux'
@@ -14,23 +16,28 @@ const AddTodo = ({ addTodo }) => {
 
 
   return (
-    <div>
+    <div className="todo-container">
+
+    <div className="input-container">
         
-        <input 
+        <input className="todo-input"
             type='text'
             placeholder='Add your todo...'
             value={inputText}
             onChange={(e)=> setInputText(e.target.value)}
         />
 
-        <button onClick={()=>{ 
+        <button  className="add-button" 
+          onClick={()=>{ 
                 // dispatch(addTodo(inputText)) 
-
-                addTodo(inputText);
+                // addTodo(inputText)
+                
+                addTodo({todoData: inputText});
                 setInputText('')
             }}> Add </button>
 
     </div>
+  </div>
   )
 }
 

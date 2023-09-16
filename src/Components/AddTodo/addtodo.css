@@ -1,0 +1,56 @@
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Set the height as needed */
+    background-color: #f0f0f0;
+    padding: 10px;
+
+}
+
+.input-container {
+    display: flex;
+    width: 60vw;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.todo-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.add-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    width: 8rem;
+    font-size: large;
+    font-weight: 700;
+}
+
+.add-button:hover {
+    background-color: #0056b3;
+}
+
+@media screen and (max-width: 768px) {
+    /* .input-container {
+        width: 90vw; 
+
+    }
+
+    .add-button {
+        width: 100%; 
+
+    } */
+}

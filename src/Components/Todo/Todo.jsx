@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import "./todo.css";
+import React, { useState } from 'react';
 
 const Todo = ({todoData, isFinished, changeFinished, onDelete}) => {
 
@@ -7,15 +8,16 @@ const Todo = ({todoData, isFinished, changeFinished, onDelete}) => {
     const [editText, setEditText] = useState(todoData);
 
   return (
-    <div>
-        <input type='checkbox' checked={finished} onChange={(e)=> {
+    <div className="todo-item">
+        <input className="checkbox" type='checkbox' checked={finished} onChange={(e)=> {
                                                     setFinished(e.target.checked)
                                                     changeFinished(e.target.checked)
                                                     }} />
 
-        { (isEditing) ? <input type='text' value={editText} onChange={(e)=> setEditText(e.target.value)} />  : editText }
+        { (isEditing) ? <input className="edit-input" type='text' value={editText} onChange={(e)=> setEditText(e.target.value)} />  : <span className="todo-text"> { editText}</span> }
 
-        <button onClick={()=> {
+        <button className="edit-button" 
+            onClick={()=> {
             setIsEditing(!isEditing);
             setEditText(editText);
 
@@ -24,7 +26,7 @@ const Todo = ({todoData, isFinished, changeFinished, onDelete}) => {
 
         </button>
 
-        <button onClick={onDelete}> Delete</button>
+        <button className="delete-button" onClick={onDelete}> Delete</button>
     </div>
   )
 }

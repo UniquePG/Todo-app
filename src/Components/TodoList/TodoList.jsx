@@ -1,3 +1,5 @@
+import "./todolist.css"
+
 import React, { useContext } from 'react'
 import Todo from '../Todo/Todo'
 import TodoContext from '../../Context/TodoContext'
@@ -5,12 +7,15 @@ import todoDespatchContext from '../../Context/todoDespatchContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteTodo, editTodo, finishedTodo } from '../../Actions/todoActions';
 
+
 const TodoList = ( { deleteTodo, editTodo, finishedTodo }) => {
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     // now we get our state list from selector method
-    const todoList = useSelector( (state) => state.todo)    //* it gives the access of todo(we define in combineReducer)
+    const todoList = useSelector( (state) => state.todo.todoList)    //* it gives the access of todo(we define in combineReducer)
+
+    console.log(todoList);
 
     // const { todoList} = useContext(TodoContext);
 
@@ -36,7 +41,7 @@ const TodoList = ( { deleteTodo, editTodo, finishedTodo }) => {
         // dispatch(finishedTodo(todo, isFinished));
         
         //! 4th
-        finishedTodo(todo, isFinished)
+        finishedTodo({todo, isFinished})
 
     }
 
@@ -54,7 +59,7 @@ const TodoList = ( { deleteTodo, editTodo, finishedTodo }) => {
         // dispatch(deleteTodo(todo)); 
 
         //! 4th
-        deleteTodo(todo);
+        deleteTodo({todo});
     }
 
 
@@ -78,11 +83,11 @@ const TodoList = ( { deleteTodo, editTodo, finishedTodo }) => {
         // dispatch(editTodo(todo, newTodoText));
         
         //! 4th
-        editTodo(todo, newTodoText)
+        editTodo({todo, newTodoText})
     }
 
   return (
-    <div>
+    <div className="todo-list">
         {
             todoList.length > 0 && 
             todoList.map( (todo)=> <Todo 
@@ -93,7 +98,7 @@ const TodoList = ( { deleteTodo, editTodo, finishedTodo }) => {
                                         changeFinished={(isFinished)=> onFinished(todo, isFinished) }
                                         
                                         onDelete={()=>  onDelete(todo) }
-
+                                        
                                         onEdit={(todoText)=> onEdit(todo, todoText) }
                                         />)
         }

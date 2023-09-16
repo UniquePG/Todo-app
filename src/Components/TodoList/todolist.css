@@ -1,0 +1,55 @@
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adjust the gap between todo items as needed */
+    padding: 10px;
+}
+
+/* Style each individual todo item */
+.todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.checkbox {
+    margin-right: 10px;
+}
+
+.todo-text {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.edit-button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    margin-right: 5px;
+}
+
+.edit-button:hover {
+    background-color: #0056b3;
+}
+
+.delete-button {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}

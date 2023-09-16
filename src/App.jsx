@@ -5,11 +5,12 @@ import AddTodo from './Components/AddTodo/AddTodo'
 
 import TodoList from './Components/TodoList/TodoList'
 import TodoContext from './Context/TodoContext'
-import todoReducer from './Reducer/todoReducer'
+// import todoReducer from './Reducer/todoReducer'
 import TodoDespatchContext from './Context/todoDespatchContext'
 import { useDispatch } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { addTodo, deleteTodo, editTodo, finishedTodo } from './Actions/todoActions'
+// import { addTodo, deleteTodo, editTodo, finishedTodo } from './Actions/todoActions'
+import todoReducer, { addTodo, editTodo, deleteTodo, finishedTodo } from './Slices/todoSlice'
 
 
 
